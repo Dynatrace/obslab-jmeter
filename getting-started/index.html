@@ -524,8 +524,14 @@ https://abc12345.apps.dynatrace.com
 <h2 id="gather-details-create-api-token">Gather Details: Create API Token<a class="headerlink" href="#gather-details-create-api-token" title="Permanent link">#</a></h2>
 <p>Create an API token with the following permissions:</p>
 <ul>
+<li><code>ReadConfig</code></li>
+<li><code>DataExport</code></li>
+<li><code>CaptureRequestData</code></li>
 <li><code>openpipeline.events_sdlc</code></li>
 </ul>
+<p>The <code>ReadConfig</code>, <code>DataExport</code> and <code>CaptureRequestData</code> permissions will be used by the Monaco Configuration as Code utility to apply configuration to your Dynatrace environment.
+This configuration will capture the <code>x-dynatrace-test</code> HTTP header and process the values described <a href="https://docs.dynatrace.com/docs/platform-modules/automations/cloud-automation/test-automation" target="_blank">here</a>.</p>
+<p>The <code>openpipeline.events_sdlc</code> permission is required to send the "load test finished" SDLC event to Dynatrace.</p>
 <h2 id="start-demo">Start Demo<a class="headerlink" href="#start-demo" title="Permanent link">#</a></h2>
 <p>Click this button to launch the demo in a new tab.</p>
 <p><a href="https://codespaces.new/dynatrace/obslab-jmeter" target="_blank"><img alt="Open in GitHub Codespaces" src="https://github.com/codespaces/badge.svg" /></a></p>
