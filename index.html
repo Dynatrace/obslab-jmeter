@@ -477,6 +477,8 @@
   <h1>1. About</h1>
 
 <p>This demo will run an <a href="https://jmeter.apache.org" target="_blank">Apache JMeter</a> script and send a <a href="https://docs.dynatrace.com/docs/platform/openpipeline/reference/openpipeline-ingest-api/sdlc-events/events-sdlc-builtin" target="_blank">Dynatrace SDLC event</a> when the load test is finished.</p>
+<p>The HTTP requests in the JMX file are also instrumented with the recommended <code>x-dynatrace-test</code> headers.
+<a href="https://docs.dynatrace.com/docs/manage/configuration-as-code/monaco" target="_blank">Monaco</a> is used to apply configuration to your tenant to capture these header values.</p>
 <p>This event can be used to trigger further automations such as Dynatrace workflows.</p>
 <p><img alt="Dynatrace JMeter dashboard" src="images/sdlc-event.png" /></p>
 <h2 id="compatibility">Compatibility<a class="headerlink" href="#compatibility" title="Permanent link">#</a></h2>
