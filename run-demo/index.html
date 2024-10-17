@@ -203,7 +203,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    GitHub
+    View Code on GitHub
   </div>
 </a>
       </div>
@@ -249,7 +249,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    GitHub
+    View Code on GitHub
   </div>
 </a>
     </div>
@@ -538,8 +538,8 @@ because the load test is hitting <code>example.com</code></p>
 <ul>
 <li>The load test calls <code>example.com</code> and specifies an <code>x-dynatrace-test</code> headers with these values:</li>
 </ul>
-<pre><code>SI=jmeter;LSN=Scenario1;TSN=Step1;LTN=Demo LoadTest 1
-</code></pre>
+<div class="highlight"><pre><span></span><code>SI=jmeter;LSN=Scenario1;TSN=Step1;LTN=Demo LoadTest 1
+</code></pre></div>
 <p>These values help arrange and organize your load testing across multiple scenarios, steps and load test names.</p>
 <p>The definition of these values (and additional values) can be found <a href="https://docs.dynatrace.com/docs/platform-modules/automations/cloud-automation/test-automation#tag-tests-with-http-headers" target="_blank">here</a>.</p>
 <h2 id="tear-down-thread-group">Tear Down Thread Group<a class="headerlink" href="#tear-down-thread-group" title="Permanent link">#</a></h2>
@@ -551,8 +551,8 @@ because the load test is hitting <code>example.com</code></p>
 <p>This event allows integration opportunitities into other Dynatrace functionality such as triggering workflows automatically at the end of a load test.</p>
 <h2 id="run-jmeter">Run JMeter<a class="headerlink" href="#run-jmeter" title="Permanent link">#</a></h2>
 <p>In the codespace terminal, paste the following:</p>
-<pre><code>apache-jmeter/bin/jmeter.sh -n -t jmeterscripts/example.jmx
-</code></pre>
+<div class="highlight"><pre><span></span><code>apache-jmeter/bin/jmeter.sh -n -t jmeterscripts/example.jmx
+</code></pre></div>
 <h2 id="view-events">View Events<a class="headerlink" href="#view-events" title="Permanent link">#</a></h2>
 <p>When the load test finished, the <a href="https://github.com/Dynatrace/obslab-jmeter/blob/fc0700075d990c9b5c95a2a69a98a8bc015e256f/jmeterscripts/example.jmx#L47" target="_blank">teardown thread group</a> sends a Software Delivery Lifecycle Event (SDLC) to Dynatrace.</p>
 <p><img alt="teardown call" src="../images/teardown.png" /></p>
@@ -564,11 +564,11 @@ because the load test is hitting <code>example.com</code></p>
 <li>Open an existing notebook or create a new one</li>
 <li>Add a new <code>DQL</code> section and paste the following</li>
 </ul>
-<pre><code>fetch events
+<div class="highlight"><pre><span></span><code>fetch events
 | filter event.kind == &quot;SDLC_EVENT&quot;
 | filter event.provider == &quot;jmeter&quot;
 | filter event.category == &quot;finished&quot;
-</code></pre>
+</code></pre></div>
 <p><img alt="sdlc event" src="../images/sdlc-event.png" /></p>
 <p>The demo is complete.</p>
 <div class="grid cards">
