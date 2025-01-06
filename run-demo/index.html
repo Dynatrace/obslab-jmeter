@@ -527,11 +527,12 @@
   <h1>3. Run Demo</h1>
 
 <h2 id="x-dynatrace-test-headers">x-dynatrace-test Headers<a class="headerlink" href="#x-dynatrace-test-headers" title="Permanent link">#</a></h2>
-<blockquote>
-<p>Note: You won't see these values (or any traffic in Dynatrace) by default
+<div class="admonition note">
+<p class="admonition-title">Expect No Traffic in Dynatrace</p>
+<p>You won't see these values (or any traffic in Dynatrace) by default
 because the load test is hitting <code>example.com</code></p>
 <p>If you have a service instrumented with OneAgent or OpenTelemetry, modify <code>example.jmx</code> to hit your URL instead to see traffic.</p>
-</blockquote>
+</div>
 <p>Open <a href="https://github.com/Dynatrace/obslab-jmeter/blob/main/jmeterscripts/example.jmx" target="_blank">jmeterscripts/example.jmx</a> and notice a few things:</p>
 <ul>
 <li>The load test calls <code>example.com</code> and specifies an <code>x-dynatrace-test</code> headers with these values:</li>
