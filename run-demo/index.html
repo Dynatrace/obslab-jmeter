@@ -550,7 +550,7 @@ because the load test is hitting <code>example.com</code></p>
 <p>This event allows integration opportunitities into other Dynatrace functionality such as triggering workflows automatically at the end of a load test.</p>
 <h2 id="run-jmeter">Run JMeter<a class="headerlink" href="#run-jmeter" title="Permanent link">#</a></h2>
 <p>In the codespace terminal, paste the following:</p>
-<div class="highlight"><pre><span></span><code>apache-jmeter/bin/jmeter.sh -n -t jmeterscripts/example.jmx
+<div class="highlight"><pre><span></span><code>/workspaces/$RepositoryName/apache-jmeter/bin/jmeter.sh -n -t /workspaces/$RepositoryName/jmeterscripts/example.jmx
 </code></pre></div>
 <h2 id="view-events">View Events<a class="headerlink" href="#view-events" title="Permanent link">#</a></h2>
 <p>When the load test finished, the <a href="https://github.com/Dynatrace/obslab-jmeter/blob/fc0700075d990c9b5c95a2a69a98a8bc015e256f/jmeterscripts/example.jmx#L47" target="_blank">teardown thread group</a> sends a Software Delivery Lifecycle Event (SDLC) to Dynatrace.</p>
