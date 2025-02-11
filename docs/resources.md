@@ -1,3 +1,4 @@
+--8<-- "snippets/bizevent-resources.js"
 ## Resources
 
 - [:simple-dynatrace: Sign up for a Dynatrace Trial](https://dt-url.net/trial){target=_blank}

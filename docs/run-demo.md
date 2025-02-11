@@ -1,6 +1,8 @@
 
 ## x-dynatrace-test Headers
 
+--8<-- "snippets/bizevent-run-demo.js"
+
 !!! note "Expect No Traffic in Dynatrace"
     You won't see these values (or any traffic in Dynatrace) by default
     because the load test is hitting `example.com`
