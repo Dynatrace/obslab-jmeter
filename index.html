@@ -32,8 +32,13 @@
 
     
     
+  <!-- Add scripts that need to run before here -->
+  
       
     
+  <!-- Add scripts that need to run afterwards here -->
+  <script type="text/javascript" src="https://js-cdn.dynatrace.com/jstag/145e12d594f/bf64904yne/65c3f993a619db7e_complete.js" crossorigin="anonymous"></script>
+
     
       
         
@@ -475,6 +480,11 @@
 
 
 <h1 id="dynatrace-observability-lab-apache-jmeter-observability">Dynatrace Observability Lab: Apache JMeter Observability<a class="headerlink" href="#dynatrace-observability-lab-apache-jmeter-observability" title="Permanent link">#</a></h1>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  dynatrace.sendBizEvent('page_load', {"page": "homepage"});
+});
+</script>
 <div class="admonition warning">
 <p class="admonition-title">Support Policy</p>
 <p>This is a demo project created by the Developer Relations team at Dynatrace, showcasing integrations with open source technologies.</p>

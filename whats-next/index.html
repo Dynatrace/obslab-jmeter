@@ -34,8 +34,13 @@
 
     
     
+  <!-- Add scripts that need to run before here -->
+  
       
     
+  <!-- Add scripts that need to run afterwards here -->
+  <script type="text/javascript" src="https://js-cdn.dynatrace.com/jstag/145e12d594f/bf64904yne/65c3f993a619db7e_complete.js" crossorigin="anonymous"></script>
+
     
       
         
@@ -412,6 +417,12 @@
 
 
   <h1>5. What's Next?</h1>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  dynatrace.sendBizEvent('page_load', {"page": "whats-next"});
+});
+</script>
 
 <p>The <a href="https://docs.dynatrace.com/docs/platform-modules/automations/cloud-automation/test-automation/dynatrace-and-jmeter-integration" target="_blank">official Dynatrace documentation</a> has more information that you will probably find useful.</p>
 <p>View the <a href="../resources/">resources page</a> for more links and useful materials.</p>

@@ -34,8 +34,13 @@
 
     
     
+  <!-- Add scripts that need to run before here -->
+  
       
     
+  <!-- Add scripts that need to run afterwards here -->
+  <script type="text/javascript" src="https://js-cdn.dynatrace.com/jstag/145e12d594f/bf64904yne/65c3f993a619db7e_complete.js" crossorigin="anonymous"></script>
+
     
       
         
@@ -527,6 +532,12 @@
   <h1>3. Run Demo</h1>
 
 <h2 id="x-dynatrace-test-headers">x-dynatrace-test Headers<a class="headerlink" href="#x-dynatrace-test-headers" title="Permanent link">#</a></h2>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  dynatrace.sendBizEvent('page_load', {"page": "run-demo"});
+});
+</script>
+
 <div class="admonition note">
 <p class="admonition-title">Expect No Traffic in Dynatrace</p>
 <p>You won't see these values (or any traffic in Dynatrace) by default

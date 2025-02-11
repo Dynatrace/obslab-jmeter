@@ -34,8 +34,13 @@
 
     
     
+  <!-- Add scripts that need to run before here -->
+  
       
     
+  <!-- Add scripts that need to run afterwards here -->
+  <script type="text/javascript" src="https://js-cdn.dynatrace.com/jstag/145e12d594f/bf64904yne/65c3f993a619db7e_complete.js" crossorigin="anonymous"></script>
+
     
       
         
@@ -567,6 +572,12 @@ https://abc12345.apps.dynatrace.com
 </tr>
 </tbody>
 </table>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  dynatrace.sendBizEvent('page_load', {"page": "getting-started"});
+});
+</script>
+
 <h2 id="gather-details-create-api-token">Gather Details: Create API Token<a class="headerlink" href="#gather-details-create-api-token" title="Permanent link">#</a></h2>
 <p>Create an API token with the following permissions:</p>
 <ul>
