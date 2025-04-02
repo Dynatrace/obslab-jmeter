@@ -4,6 +4,6 @@
 
 This demo will run an Apache JMeter load test and send a Dynatrace SDLC event automatically at the end of the load test.
 
-You can use this event as a trigger for further automation such using hte Dynatrace Workflow engine.
+You can use this event as a trigger for further automation such using Dynatrace Workflows.
 
 ## >> [Start the Hands on Tutorial](https://dynatrace.github.io/obslab-jmeter)
