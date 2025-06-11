@@ -13,13 +13,6 @@ This event can be used to trigger further automations such as Dynatrace workflow
 
 ![Dynatrace JMeter dashboard](images/sdlc-event.png)
 
-## Compatibility
-
-| Deployment         | Tutorial Compatible |
-|--------------------|---------------------|
-| Dynatrace Managed  | ✔️                 |
-| Dynatrace SaaS     | ✔️                 |
-
 <div class="grid cards" markdown>
 - [Click Here to Begin :octicons-arrow-right-24:](getting-started.md)
 </div>
