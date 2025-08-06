@@ -9,18 +9,6 @@
 
     If you have a service instrumented with OneAgent or OpenTelemetry, modify `example.jmx` to hit your URL instead to see traffic.
 
-Open [jmeterscripts/example.jmx](https://github.com/Dynatrace/obslab-jmeter/blob/main/jmeterscripts/example.jmx){target=_blank} and notice a few things:
-
-- The load test calls `example.com` and specifies an `x-dynatrace-test` headers with these values:
-
-```
-SI=jmeter;LSN=Scenario1;TSN=Step1;LTN=Demo LoadTest 1
-```
-
-These values help arrange and organize your load testing across multiple scenarios, steps and load test names.
-      
-The definition of these values (and additional values) can be found [here](https://docs.dynatrace.com/docs/platform-modules/automations/cloud-automation/test-automation#tag-tests-with-http-headers){target=_blank}.
-
 ## Tear Down Thread Group
 A `tearDown` thread group exists (which fires at the end of the load test)
 
@@ -31,7 +19,7 @@ This event allows integration opportunitities into other Dynatrace functionality
 
 ## Run JMeter
 
-In the codespace terminal, paste the following:
+Paste the following into the terminal to run a 10 second load test and automatically send the SDLC event to Dynatrace:
 
 ``` { "name": "run jmeter" }
 /workspaces/$RepositoryName/apache-jmeter/bin/jmeter.sh -n -t /workspaces/$RepositoryName/jmeterscripts/example.jmx
