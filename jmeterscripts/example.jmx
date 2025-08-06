@@ -4,7 +4,7 @@
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan">
       <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
-        <collectionProp name="Arguments.arguments"/>
+        <collectionProp name="Arguments.arguments" />
       </elementProp>
     </TestPlan>
     <hashTree>
@@ -67,12 +67,12 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-  &quot;event.provider&quot;: &quot;jmeter&quot;,&#xd;
-  &quot;event.type&quot;: &quot;test&quot;,&#xd;
-  &quot;event.category&quot;: &quot;finished&quot;,&#xd;
-  &quot;service&quot;: &quot;dummyservice&quot;,&#xd;
-  &quot;duration&quot;: &quot;10s&quot;&#xd;
+                <stringProp name="Argument.value">{
+  "event.provider": "jmeter",
+  "event.type": "test",
+  "event.category": "finished",
+  "service": "dummyservice",
+  "duration": "10s"
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>

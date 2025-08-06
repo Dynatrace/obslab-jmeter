@@ -1,5 +1,6 @@
 import os
 from utils import *
+import dotenv
 
 CODESPACE_NAME = os.environ.get("CODESPACE_NAME", "")
 GITHUB_REPOSITORY = os.environ.get("GITHUB_REPOSITORY", "")
@@ -9,38 +10,33 @@ MONACO_VERSION="v2.15.2"
 JMETER_VERSION="5.6.3"
 RUNME_CLI_VERSION = "3.10.2"
 
-
-# Build DT environment URLs
-DT_TENANT_APPS, DT_TENANT_LIVE = build_dt_urls(dt_env_id=DT_ENVIRONMENT_ID, dt_env_type=DT_ENVIRONMENT_TYPE)
-
-# Process further. Jmeter needs just abc12345.live.dynatrace. Chop off https://
-DT_TENANT_LIVE_FOR_JMETER = DT_TENANT_LIVE.replace("https://", "")
-
-# Replace placeholders
-do_file_replace(pattern=f"{BASE_DIR}/dynatrace/monaco/manifest.yaml", find_string="DT_ENVIRONMENT_PLACEHOLDER", replace_string=DT_TENANT_LIVE)
-do_file_replace(pattern=f"{BASE_DIR}/jmeterscripts/example.jmx", find_string="DT_TENANT_LIVE_PLACEHOLDER", replace_string=DT_TENANT_LIVE_FOR_JMETER)
-do_file_replace(pattern=f"{BASE_DIR}/jmeterscripts/example.jmx", find_string="DT_API_TOKEN_PLACEHOLDER", replace_string=DT_API_TOKEN)
-
-# Download Monaco
-run_command(["curl", "-L", f"https://github.com/Dynatrace/dynatrace-configuration-as-code/releases/download/{MONACO_VERSION}/monaco-linux-amd64", "-o", "monaco-linux-amd64"])
-run_command(["mv", "monaco-linux-amd64", "monaco"])
-run_command(["chmod", "+x", "monaco"])
-run_command(["sudo", "mv", "monaco", "/usr/local/bin/"])
-
-# Apply Monaco config to tenant
-run_command(["monaco", "deploy", f"{BASE_DIR}/dynatrace/monaco/manifest.yaml"])
-
-# Download and extract JMeter
-run_command(["wget", "-O", "apache-jmeter.tgz", f"https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-{JMETER_VERSION}.tgz"])
-run_command(["tar", "-xf", "apache-jmeter.tgz"])
-run_command(["mv", f"apache-jmeter-{JMETER_VERSION}", "apache-jmeter"])
-
 # Install RunMe
 run_command(["mkdir", "runme_binary"])
 run_command(["wget", "-O", "runme_binary/runme_linux_x86_64.tar.gz", f"https://download.stateful.com/runme/{RUNME_CLI_VERSION}/runme_linux_x86_64.tar.gz"])
 run_command(["tar", "-xvf", "runme_binary/runme_linux_x86_64.tar.gz", "--directory", "runme_binary"])
 run_command(["sudo", "mv", "runme_binary/runme", "/usr/local/bin"])
 run_command(["rm", "-rf", "runme_binary"])
+
+
+# Build DT environment URLs
+DT_TENANT_APPS, DT_TENANT_LIVE = build_dt_urls(dt_env_id=DT_ENVIRONMENT_ID, dt_env_type=DT_ENVIRONMENT_TYPE)
+
+# Write .env file
+# Required because user interaction needs DT_TENANT_LIVE during the tutorial
+# So we tell user to source .env
+dotenv.set_key(dotenv_path=".env", key_to_set="DT_URL", value_to_set=DT_TENANT_LIVE, export=True)
+
+# Process further. Jmeter needs just abc12345.live.dynatrace. Chop off https://
+DT_TENANT_LIVE_FOR_JMETER = DT_TENANT_LIVE.replace("https://", "")
+
+# Replace placeholders
+do_file_replace(pattern=f"{BASE_DIR}/jmeterscripts/example.jmx", find_string="DT_TENANT_LIVE_PLACEHOLDER", replace_string=DT_TENANT_LIVE_FOR_JMETER)
+do_file_replace(pattern=f"{BASE_DIR}/jmeterscripts/example.jmx", find_string="DT_API_TOKEN_PLACEHOLDER", replace_string=DT_API_TOKEN)
+
+# Download and extract JMeter
+run_command(["wget", "-O", "apache-jmeter.tgz", f"https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-{JMETER_VERSION}.tgz"])
+run_command(["tar", "-xf", "apache-jmeter.tgz"])
+run_command(["mv", f"apache-jmeter-{JMETER_VERSION}", "apache-jmeter"])
 
 if CODESPACE_NAME.startswith("dttest-"):
     # Set default repository for gh CLI
@@ -61,4 +57,5 @@ if CODESPACE_NAME.startswith("dttest-"):
     # Testing finished. Destroy the codespace
     # run_command(["gh", "codespace", "delete", "--codespace", CODESPACE_NAME, "--force"])
 else:
-    send_startup_ping(demo_name="obslab-jmeter")
+    print("In testing mode. Do not send startup ping.")
+    #send_startup_ping(demo_name="obslab-jmeter")
