@@ -5,9 +5,9 @@
 	"image": "ubuntu:noble",
 
 	// Enable docker in docker support
-	"features": {
-		"ghcr.io/devcontainers/features/docker-in-docker:2.12.2": {}
-	},
+	// "features": {
+	// 	"ghcr.io/devcontainers/features/docker-in-docker:2.12.2": {}
+	// },
 
 	"hostRequirements": {
 		"cpus": 2
