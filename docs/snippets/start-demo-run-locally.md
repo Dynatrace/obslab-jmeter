@@ -28,6 +28,7 @@ It will take a few moments but you should see:
 ```
 
 * Connect to the demo environment. This will launch a new Visual Studio Code window
+
 ```
 devcontainer open
 ```
