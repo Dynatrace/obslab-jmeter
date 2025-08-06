@@ -501,9 +501,29 @@ document.addEventListener('DOMContentLoaded', function() {
 <p class="admonition-title">View the Code</p>
 <p>The code for this repository is hosted on GitHub. Click the "View Code on GitHub" link above.</p>
 </div>
+<div class="admonition info">
+<p class="admonition-title">Select Execution Mode</p>
+<p>Please choose a way to run this demo. When you have chosen, leave the selection toggled as this ensure the correct instructions are given throughout this tutorial.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Run in Cloud</label><label for="__tabbed_1_2">Run Locally</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>This is the easiest option. A new tab will open in your browser and everything necessary will be pre-installed.</p>
+<p>This option uses GitHub Codespaces and is usually free (GitHub provides credits each month).</p>
+</div>
+<div class="tabbed-block">
+<p>Use this option if you want to run this demo on your own machine.</p>
+<p>To make this work, you'll need the following installed:</p>
+<ul>
+<li><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a></li>
+<li>The <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers" target="_blank">Microsoft Dev Containers extension</a> in Visual Studio Code</li>
+<li>The <a href="https://code.visualstudio.com/docs/devcontainers/devcontainer-cli#_installation" target="_blank">Dev Containers CLI</a></li>
+<li>Ability to clone this repository locally (if you don't know what this means, use the "run in cloud" option)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <p>This demo will run an <a href="https://jmeter.apache.org" target="_blank">Apache JMeter</a> script and send a <a href="https://docs.dynatrace.com/docs/platform/openpipeline/reference/openpipeline-ingest-api/sdlc-events/events-sdlc-builtin" target="_blank">Dynatrace SDLC event</a> when the load test is finished.</p>
-<p>The HTTP requests in the JMX file are also instrumented with the recommended <code>x-dynatrace-test</code> headers.
-<a href="https://docs.dynatrace.com/docs/manage/configuration-as-code/monaco" target="_blank">Monaco</a> is used to apply configuration to your tenant to capture these header values.</p>
 <p>This event can be used to trigger further automations such as Dynatrace workflows.</p>
 <p><img alt="Dynatrace JMeter dashboard" src="images/sdlc-event.png" /></p>
 <div class="grid cards">
@@ -528,6 +548,8 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
@@ -559,7 +581,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy", "content.tabs.link"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.13a4f30d.min.js"></script>

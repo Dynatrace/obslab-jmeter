@@ -609,14 +609,6 @@ document.addEventListener('DOMContentLoaded', function() {
 because the load test is hitting <code>example.com</code></p>
 <p>If you have a service instrumented with OneAgent or OpenTelemetry, modify <code>example.jmx</code> to hit your URL instead to see traffic.</p>
 </div>
-<p>Open <a href="https://github.com/Dynatrace/obslab-jmeter/blob/main/jmeterscripts/example.jmx" target="_blank">jmeterscripts/example.jmx</a> and notice a few things:</p>
-<ul>
-<li>The load test calls <code>example.com</code> and specifies an <code>x-dynatrace-test</code> headers with these values:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>SI=jmeter;LSN=Scenario1;TSN=Step1;LTN=Demo LoadTest 1
-</code></pre></div>
-<p>These values help arrange and organize your load testing across multiple scenarios, steps and load test names.</p>
-<p>The definition of these values (and additional values) can be found <a href="https://docs.dynatrace.com/docs/platform-modules/automations/cloud-automation/test-automation#tag-tests-with-http-headers" target="_blank">here</a>.</p>
 <h2 id="tear-down-thread-group">Tear Down Thread Group<a class="headerlink" href="#tear-down-thread-group" title="Permanent link">#</a></h2>
 <p>A <code>tearDown</code> thread group exists (which fires at the end of the load test)</p>
 <ul>
@@ -625,7 +617,7 @@ because the load test is hitting <code>example.com</code></p>
 </ul>
 <p>This event allows integration opportunitities into other Dynatrace functionality such as triggering workflows automatically at the end of a load test.</p>
 <h2 id="run-jmeter">Run JMeter<a class="headerlink" href="#run-jmeter" title="Permanent link">#</a></h2>
-<p>In the codespace terminal, paste the following:</p>
+<p>Paste the following into the terminal to run a 10 second load test and automatically send the SDLC event to Dynatrace:</p>
 <div class="highlight"><pre><span></span><code>/workspaces/$RepositoryName/apache-jmeter/bin/jmeter.sh -n -t /workspaces/$RepositoryName/jmeterscripts/example.jmx
 </code></pre></div>
 <h2 id="view-events">View Events<a class="headerlink" href="#view-events" title="Permanent link">#</a></h2>
@@ -668,6 +660,8 @@ because the load test is hitting <code>example.com</code></p>
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
@@ -699,7 +693,7 @@ because the load test is hitting <code>example.com</code></p>
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
