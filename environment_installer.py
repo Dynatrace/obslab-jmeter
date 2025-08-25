@@ -36,7 +36,7 @@ do_file_replace(pattern=f"{BASE_DIR}/jmeterscripts/example.jmx", find_string="DT
 # Download and extract JMeter
 run_command(["wget", "-O", "apache-jmeter.tgz", f"https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-{JMETER_VERSION}.tgz"])
 run_command(["tar", "-xf", "apache-jmeter.tgz"])
-run_command(["mv", f"apache-jmeter-{JMETER_VERSION}", "apache-jmeter"])
+run_command(["sudo", "mv", f"apache-jmeter-{JMETER_VERSION}", "apache-jmeter"])
 
 if CODESPACE_NAME.startswith("dttest-"):
     # Set default repository for gh CLI
@@ -57,5 +57,5 @@ if CODESPACE_NAME.startswith("dttest-"):
     # Testing finished. Destroy the codespace
     # run_command(["gh", "codespace", "delete", "--codespace", CODESPACE_NAME, "--force"])
 else:
-    print("In testing mode. Do not send startup ping.")
-    #send_startup_ping(demo_name="obslab-jmeter")
+    #print("In testing mode. Do not send startup ping.")
+    send_startup_ping(demo_name="obslab-jmeter")

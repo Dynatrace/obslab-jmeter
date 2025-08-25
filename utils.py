@@ -41,7 +41,7 @@ WAIT_FOR_ACCOUNTS_TIMEOUT = 60
 
 COLLECTOR_WAIT_TIMEOUT_SECONDS = 30
 OPENTELEMETRY_COLLECTOR_ENDPOINT = "http://localhost:4318"
-CODESPACE_NAME = os.environ.get("CODESPACE_NAME")
+CODESPACE_NAME = os.environ.get("CODESPACE_NAME", f"{REPOSITORY_NAME}-local")
 
 GITHUB_ORG_SLASH_REPOSITORY = os.environ.get("GITHUB_REPOSITORY", f"{REPOSITORY_NAME}-local") # eg. yourOrg/yourRepo
 GITHUB_REPO_NAME = os.environ.get("RepositoryName") # eg. mclass
@@ -368,7 +368,7 @@ def send_startup_ping(demo_name=""):
 
     body = {
         "repo": hashed_org_slash_repo,
-        "testing": True,
+        "testing": False,
         "tenant": DT_ENVIRONMENT_ID,
         "demo": demo_name,
         "codespace.name": CODESPACE_NAME
