@@ -4,3 +4,4 @@ jmeter.log
 .env
 *__pycache__*
 *apache-jmeter*
+notes.txt
